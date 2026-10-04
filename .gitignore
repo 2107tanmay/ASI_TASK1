@@ -1,0 +1,113 @@
+# =========================
+# Python
+# =========================
+
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+.python-version
+
+# Python tooling
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.egg-info/
+dist/
+build/
+
+# =========================
+# Environment / Secrets
+# =========================
+
+.env
+.env.*
+!.env.example
+
+# =========================
+# Application Data
+# =========================
+
+uploads/
+storage/
+data/
+*.sqlite
+*.sqlite3
+
+# Logs
+*.log
+logs/
+
+# =========================
+# FAISS / Vector Store
+# =========================
+
+*.faiss
+*.index
+vector_store/
+faiss_index/
+indexes/
+
+# =========================
+# Node / React / Vite
+# =========================
+
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+.vite/
+
+# =========================
+# IDE / Editors
+# =========================
+
+.vscode/
+.idea/
+*.iml
+
+# =========================
+# OS
+# =========================
+
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# =========================
+# Temporary files
+# =========================
+
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
+.cache/
+
+# =========================
+# Coverage / Test Artifacts
+# =========================
+
+coverage/
+test-results/
+playwright-report/
+
+# =========================
+# Neo4j Local Installation
+# =========================
+
+neo4j.zip
+neo4j/
+neo4j_dir/

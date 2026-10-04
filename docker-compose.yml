@@ -1,0 +1,75 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: asi_task1
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+    ports:
+      - "${MYSQL_HOST_PORT:-3306}:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  neo4j:
+    image: neo4j:5.12
+    container_name: neo4j
+    restart: always
+    environment:
+      NEO4J_AUTH: "${NEO4J_USER:-root}/${NEO4J_PASSWORD:-root}"
+    ports:
+      - "${NEO4J_HTTP_PORT:-7474}:7474"
+      - "${NEO4J_BOLT_PORT:-7687}:7687"
+    volumes:
+      - neo4j_data:/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:7474"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: backend
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "${FASTAPI_HOST_PORT:-8000}:8000"
+    depends_on:
+      mysql:
+        condition: service_healthy
+      neo4j:
+        condition: service_healthy
+    volumes:
+      - ./backend:/app
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: frontend
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "${FRONTEND_HOST_PORT:-5173}:5173"
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/app
+
+volumes:
+  mysql_data:
+  neo4j_data:
