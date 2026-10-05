@@ -76,3 +76,37 @@ def get_irr(option_id: str):
         return {"irr": "7.05%"}
     elif option_id == "B":
         return {"irr": "6.63%"}
+
+from pydantic import BaseModel
+
+class SandboxRequest(BaseModel):
+    passing_income: float = 795200
+    unrecovered_outgoings: float = 18560
+    land_tax: float = 78000
+    holding_costs: float = 41000
+    capex: float = 250000
+    total_cost: float = 14450000
+    rent_growth: float = 0.025
+    exit_cap: float = 0.0455
+
+@router.post("/sandbox")
+def sandbox_simulate(req: SandboxRequest):
+    noi = req.passing_income - req.unrecovered_outgoings - req.land_tax - req.holding_costs
+    total_capital = req.total_cost + req.capex
+    niy = (noi / total_capital) if total_capital > 0 else 0
+    
+    # Hardcoded deterministic projections
+    year_10_noi = noi * ((1 + req.rent_growth) ** 10)
+    terminal_value = year_10_noi / req.exit_cap if req.exit_cap > 0 else 0
+    
+    # Rough IRR approximation for testing: Cash on Cash return + Growth
+    approx_irr = niy + req.rent_growth
+    
+    return {
+        "noi": round(noi, 2),
+        "total_capital": round(total_capital, 2),
+        "niy": f"{round(niy * 100, 2)}%",
+        "year_10_noi": round(year_10_noi, 2),
+        "terminal_value": round(terminal_value, 2),
+        "approx_irr": f"{round(approx_irr * 100, 2)}%"
+    }

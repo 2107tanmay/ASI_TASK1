@@ -4,6 +4,7 @@ import IntakeView from "./components/IntakeView";
 import EvidenceLedger from "./components/EvidenceLedger";
 import OptionsSensitivity from "./components/OptionsSensitivity";
 import DecisionRecord from "./components/DecisionRecord";
+import SandboxView from "./components/SandboxView";
 import Chatbot from "./components/Chatbot";
 
 function NavBar() {
@@ -12,6 +13,7 @@ function NavBar() {
     { to: "/evidence", label: "Evidence Ledger" },
     { to: "/options", label: "Options & Sensitivity" },
     { to: "/decision", label: "Decision Record" },
+    { to: "/sandbox", label: "Sandbox (Test)" },
   ];
   return (
     <nav className="bg-slate-800 px-6 py-4 flex items-center gap-6 shadow-md">
@@ -43,6 +45,7 @@ function App() {
             <Route path="/evidence" element={<EvidenceLedger />} />
             <Route path="/options" element={<OptionsSensitivity />} />
             <Route path="/decision" element={<DecisionRecord />} />
+            <Route path="/sandbox" element={<SandboxView />} />
           </Routes>
         </main>
         <Chatbot />
