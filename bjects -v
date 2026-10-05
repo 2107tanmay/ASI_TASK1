@@ -1,0 +1,57 @@
+ .env.example                                       |   34 [32m+[m
+ .gitignore                                         |  113 [32m+[m
+ README.md                                          |  Bin [31m0[m -> [32m28[m bytes
+ backend/Dockerfile                                 |   19 [32m+[m
+ backend/alembic.ini                                |    6 [32m+[m
+ backend/alembic/env.py                             |   77 [32m+[m
+ backend/alembic/script.py.mako                     |   28 [32m+[m
+ backend/alembic/versions/0001_initial.py           |  111 [32m+[m
+ .../versions/2e7c2bbf32c4_add_missing_tables.py    |  248 [32m+++[m
+ .../67508a58143e_update_calculationrun_fields.py   |   44 [32m+[m
+ ...48b1ed_add_status_content_type_file_path_to_.py |   42 [32m+[m
+ backend/app/api/routes/calculation.py              |   78 [32m+[m
+ backend/app/api/routes/decision_pack.py            |   11 [32m+[m
+ backend/app/api/routes/document.py                 |    7 [32m+[m
+ backend/app/api/routes/evidence.py                 |   11 [32m+[m
+ backend/app/api/routes/extra.py                    |   17 [32m+[m
+ backend/app/api/routes/graph.py                    |    7 [32m+[m
+ backend/app/api/routes/health.py                   |    7 [32m+[m
+ backend/app/core/config.py                         |   44 [32m+[m
+ backend/app/db/__init__.py                         |   22 [32m+[m
+ backend/app/db/models/__init__.py                  |    7 [32m+[m
+ backend/app/db/models/calculation.py               |   27 [32m+[m
+ backend/app/db/models/conflict.py                  |   26 [32m+[m
+ backend/app/db/models/decision_pack.py             |   18 [32m+[m
+ backend/app/db/models/document.py                  |   31 [32m+[m
+ backend/app/db/models/evidence.py                  |   39 [32m+[m
+ backend/app/db/models/extra_models.py              |   94 [32m+[m
+ backend/app/db/models/option.py                    |   17 [32m+[m
+ backend/app/graph/driver.py                        |    9 [32m+[m
+ backend/app/main.py                                |  162 [32m++[m
+ backend/app/rag.py                                 |   99 [32m+[m
+ backend/app/services/calculations/__init__.py      |   57 [32m+[m
+ backend/app/services/calculations/engine.py        |   96 [32m+[m
+ backend/app/services/graph.py                      |  111 [32m+[m
+ backend/app/services/graph_builder.py              |  119 [32m++[m
+ backend/app/services/llm.py                        |  153 [32m++[m
+ backend/app/services/rag.py                        |  129 [32m++[m
+ backend/app/services/vector.py                     |    0
+ backend/app/vector/faiss_index.py                  |   68 [32m+[m
+ backend/backend/alembic/README                     |    1 [32m+[m
+ backend/backend/alembic/env.py                     |   81 [32m+[m
+ backend/backend/alembic/script.py.mako             |   28 [32m+[m
+ .../backend/alembic/versions/0f73fc6e7805_init.py  |   32 [32m+[m
+ backend/backend_completion_report.md               |   65 [32m+[m
+ backend/check_suite.py                             |   56 [32m+[m
+ backend/create_fixtures.py                         |   26 [32m+[m
+ backend/create_tables.py                           |   18 [32m+[m
+ backend/debug_evidence.py                          |   13 [32m+[m
+ backend/docs/contract_summary.pdf                  |  Bin [31m0[m -> [32m68105[m bytes
+ backend/docs/desktop_valuation_note.pdf            |  Bin [31m0[m -> [32m1632[m bytes
+ backend/docs/independent_valuation.pdf             |  Bin [31m0[m -> [32m34410[m bytes
+ backend/docs/investment_policy_minute.pdf          |  Bin [31m0[m -> [32m4305[m bytes
+ backend/docs/lease_schedule_rent_roll.pdf          |  Bin [31m0[m -> [32m24497[m bytes
+ backend/docs/portfolio_treasury_schedule.pdf       |  Bin [31m0[m -> [32m8316[m bytes
+ backend/docs/property_manager_annual_summary.pdf   |  Bin [31m0[m -> [32m17077[m bytes
+ backend/eval_ragas.py                              |   92 [32m+[m
+ backend/final_backend_verification_report.md       |  118
