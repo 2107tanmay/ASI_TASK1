@@ -52,7 +52,7 @@ def run_evals():
         }
     ]
     
-    api_url = "http://127.0.0.1:8010/api/chat"
+    api_url = "http://127.0.0.1:8005/api/chat"
     results = []
     
     for test in test_suite:

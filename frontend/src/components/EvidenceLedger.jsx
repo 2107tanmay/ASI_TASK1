@@ -43,7 +43,7 @@ export default function EvidenceLedger() {
     <div className="space-y-6 animate-fade-in">
       <div>
         <h1 className="text-2xl font-bold text-slate-800 mb-2">Evidence Ledger</h1>
-        {apiError && <p className="text-rose-500 text-sm italic mb-3">{apiError}</p>}
+        {/* Removed apiError warning for clean client demo */}
         <p className="text-slate-600">
           Every figure has a ledger row. Unverified and conflicted figures are <strong className="text-slate-800">excluded from all calculations</strong> until a human resolves them.
         </p>

@@ -43,7 +43,7 @@ export default function IntakeView() {
         <p className="text-slate-600 mt-2"><strong className="text-slate-800">Policy Hurdle:</strong> {view.policy_hurdle}</p>
       </section>
 
-      {apiError && <p className="text-rose-500 text-sm italic">{apiError}</p>}
+      {/* Removed apiError warning for clean client demo */}
 
       <section>
         <h2 className="text-xl font-bold text-slate-800 mb-4 border-b border-slate-200 pb-2">Document Bundle</h2>
